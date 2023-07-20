@@ -39,9 +39,5 @@ public class VeiculoController {
   }
 
 
-  @ExceptionHandler(NegocioException.class)
-  public ResponseEntity<String> capturar( NegocioException e ){
-    return ResponseEntity.badRequest().body(e.getMessage());
-  }
   
 }
