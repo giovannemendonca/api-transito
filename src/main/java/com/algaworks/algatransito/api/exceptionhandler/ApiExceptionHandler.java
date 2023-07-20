@@ -4,10 +4,8 @@ import com.algaworks.algatransito.domain.exception.NegocioException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ProblemDetail;
-import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.*;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,7 +15,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.net.URI;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -36,22 +33,41 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     problemDetail.setTitle("Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.");
     problemDetail.setType(URI.create("https://algaTransito.com.br/dados-invalidos"));
 
-   Map <String, String> fields =  ex.getBindingResult().getAllErrors()
+      Map <String, String> fields =  ex.getBindingResult().getAllErrors()
             .stream()
             .collect(Collectors.toMap(
                     objectError -> ((FieldError) objectError).getField(),
                     objectError -> messageSource.getMessage(objectError, LocaleContextHolder.getLocale())
             ));
 
+     problemDetail.setProperty("fields", fields);
 
-   problemDetail.setProperty("fields", fields);
    return handleExceptionInternal(ex, problemDetail, headers, status, request);
-
   }
 
+
+
+
   @ExceptionHandler(NegocioException.class)
-  public ResponseEntity <String> capturar( NegocioException e ){
-    return ResponseEntity.badRequest().body(e.getMessage());
+  public ProblemDetail handlerNegocio( NegocioException e ){
+    ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+
+    problemDetail.setTitle(e.getMessage());
+    problemDetail.setType(URI.create("https://algaTransito.com.br/regra-de-negocio"));
+    
+
+    return problemDetail;
+  }
+
+  @ExceptionHandler(DataIntegrityViolationException.class)
+  public ProblemDetail handlerDataIntegrityViolationException( DataIntegrityViolationException e ) {
+
+    ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.CONFLICT);
+
+    problemDetail.setTitle("Recurso em uso. Não pode ser removido.");
+    problemDetail.setType(URI.create("https://algaTransito.com.br/recurso-em-uso"));
+
+    return problemDetail;
   }
 }
 
