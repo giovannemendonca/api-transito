@@ -18,6 +18,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+// A classe ProprietarioController é um controlador REST
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/proprietarios")
@@ -26,11 +28,13 @@ public class ProprietarioController {
   private final ProprietarioRepository proprietarioRepository;
   private final RegistroProprietarioService registroProprietarioService;
 
+  // o @GetMapping é do Spring e já inclui o @RequestMapping com o método GET
   @GetMapping
   public List<Proprietario> listar() {
     return proprietarioRepository.findAll();
   }
 
+  // o @GetMapping é do Spring e já inclui o @RequestMapping com o método GET e o parâmetro {proprietarioId}
   @GetMapping("/{proprietarioId}")
   public ResponseEntity<Proprietario> buscar( @PathVariable Long proprietarioId) {
     return proprietarioRepository.findById(proprietarioId)
@@ -38,12 +42,15 @@ public class ProprietarioController {
             .orElse(ResponseEntity.notFound().build());
   }
 
+  // o @PostMapping é do Spring e já inclui o @RequestMapping com o método POST
+  // o HttpStatus.CREATED é do Spring é um atalho para o código de status 201
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Proprietario adicionar(@Valid @RequestBody Proprietario proprietario) {
     return registroProprietarioService.salvar(proprietario);
   }
 
+  // o @PutMapping é do Spring e já inclui o @RequestMapping com o método PUT e o parâmetro {proprietarioId}
   @PutMapping("/{proprietarioId}")
   public ResponseEntity<Proprietario> atualizar( @PathVariable Long proprietarioId,@Valid @RequestBody Proprietario proprietario){
 
@@ -56,6 +63,7 @@ public class ProprietarioController {
     return ResponseEntity.ok(proprietarioAtualizado);
   }
 
+  // o @DeleteMapping é do Spring e já inclui o @RequestMapping com o método DELETE e o parâmetro {proprietarioId}
   @DeleteMapping("/{proprietarioId}")
   public ResponseEntity<Void> remover(@PathVariable Long proprietarioId){
     if(!proprietarioRepository.existsById(proprietarioId)){

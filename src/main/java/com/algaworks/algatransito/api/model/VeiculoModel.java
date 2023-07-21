@@ -6,12 +6,13 @@ import lombok.Setter;
 
 import java.time.OffsetDateTime;
 
+// a classe VeiculoModel é uma classe de modelo que representa um veículo na API
 @Getter
 @Setter
 public class VeiculoModel {
 
   private Long id;
-  private String nomeProprietario;
+  private ProprietarioResumoModel proprietario;
   private String marca;
   private String modelo;
   private String numeroPlaca;

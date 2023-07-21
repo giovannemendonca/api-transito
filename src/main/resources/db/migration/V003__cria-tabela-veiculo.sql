@@ -1,3 +1,6 @@
+-- esse script cria a tabela veiculo e adiciona uma constraint de chave estrangeira para a tabela proprietario
+-- e uma constraint de chave unica para a placa do veiculo
+
 CREATE TABLE veiculo (
     id BIGINT NOT NULL AUTO_INCREMENT,
     proprietario_id BIGINT NOT NULL,
@@ -12,3 +15,5 @@ CREATE TABLE veiculo (
 );
 ALTER TABLE veiculo ADD CONSTRAINT fk_veiculo_proprietario FOREIGN KEY (proprietario_id) REFERENCES proprietario(id);
 ALTER TABLE veiculo ADD CONSTRAINT uk_veiculo UNIQUE (placa);
+
+

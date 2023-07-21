@@ -17,17 +17,24 @@ import java.net.URI;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// a classe ResponseEntityExceptionHandler é uma classe do Spring que já trata as exceções
+// de forma mais genérica, porém, ela não retorna o corpo da mensagem, por isso,
+// é necessário criar uma classe que herda dela e sobrescrever o método handleExceptionInternal
+
 @AllArgsConstructor
 @RestControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
   private final MessageSource messageSource;
 
+  // o método handleExceptionInternal é chamado quando ocorre uma exceção
+  // ele recebe como parâmetro a exceção, o corpo da mensagem, os headers, o status e a requisição
   @Override
   protected ResponseEntity <Object> handleMethodArgumentNotValid( MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatusCode status,
                                                                   WebRequest request ) {
 
+    // o método ProblemDetail.forStatus cria um objeto do tipo ProblemDetail
     ProblemDetail problemDetail = ProblemDetail.forStatus(status);
 
     problemDetail.setTitle("Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.");
