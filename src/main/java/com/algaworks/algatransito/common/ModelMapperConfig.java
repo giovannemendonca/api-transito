@@ -25,7 +25,8 @@ public class ModelMapperConfig {
 
        modelMapper.createTypeMap(Veiculo.class, VeiculoModel.class)
                .addMappings(mapper -> mapper.map(Veiculo::getPlaca, VeiculoModel::setNumeroPlaca))
-               .addMappings(mapper -> mapper.map(veiculo -> veiculo.getProprietario().getNome(), VeiculoModel::setNomeProprietario));
+               .addMappings(mapper -> mapper.map(veiculo -> veiculo.getProprietario().getNome(),
+                       VeiculoModel::setNomeProprietario));
 
 
        return modelMapper;
