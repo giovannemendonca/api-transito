@@ -1,0 +1,447 @@
+{
+  "__export_date": "2023-07-22T15:36:01.015Z",
+  "__export_format": 4,
+  "__export_source": "insomnia.desktop.app:v2023.3.0",
+  "_type": "export",
+  "resources": [
+    {
+      "_id": "req_050983f336014f5d9e4d0ba1c454da1f",
+      "parentId": "fld_74eb6a6d50ac4cafb822d4bd52505f35",
+      "modified": 1690037589102,
+      "created": 1690035566181,
+      "url": "http://localhost:8080/veiculos/66/autuacoes",
+      "name": "Autuações - Adicionar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"descricao\": \"Avançou o sinal vermelho\",\n\t\"valorMulta\": 450\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1690035566181,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_74eb6a6d50ac4cafb822d4bd52505f35",
+      "parentId": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "modified": 1690035560385,
+      "created": 1690035560385,
+      "name": "Autuações",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1690035560385,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "parentId": null,
+      "modified": 1687217307593,
+      "created": 1687217307593,
+      "name": "JAVA api-transito",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_7157f5aa05f54d43ab712959d2fc6fd4",
+      "parentId": "fld_74eb6a6d50ac4cafb822d4bd52505f35",
+      "modified": 1690038005501,
+      "created": 1690037656808,
+      "url": "http://localhost:8080/veiculos/6/autuacoes",
+      "name": "Autuações - Listar",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1689708666737,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_91de443ae078485b8979c05bc96a656a",
+      "parentId": "fld_3413ea3ae5e74e9ea2cc2096858e4ddf",
+      "modified": 1689516076119,
+      "created": 1689381767293,
+      "url": "http://localhost:8080/veiculos/1",
+      "name": "Veiculos - Buscar",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1689381767293,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_3413ea3ae5e74e9ea2cc2096858e4ddf",
+      "parentId": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "modified": 1689381757777,
+      "created": 1689381757777,
+      "name": "Veículos",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1689381757777,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_8bcd0443747940e2a5692055ff88aac3",
+      "parentId": "fld_3413ea3ae5e74e9ea2cc2096858e4ddf",
+      "modified": 1689381828887,
+      "created": 1689381826297,
+      "url": "http://localhost:8080/veiculos",
+      "name": "Veiculos - Listar",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1688678598228.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e6de273b18674af3850b46b8dbb3fd7a",
+      "parentId": "fld_3413ea3ae5e74e9ea2cc2096858e4ddf",
+      "modified": 1689983861251,
+      "created": 1689382559794,
+      "url": "http://localhost:8080/veiculos",
+      "name": "Veiculos -  Adicionar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"proprietario\":{\n\t\t\"id\":9\n\t},\n\t\"marca\":\"Toyota\",\n\t\"modelo\": \"Hilux\",\n\t\"placa\": \"ABC4121\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1688327013696.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6e9a45fddac546579b0e4b7c5ad1fd5b",
+      "parentId": "fld_3413ea3ae5e74e9ea2cc2096858e4ddf",
+      "modified": 1690039501567,
+      "created": 1690038929151,
+      "url": "http://localhost:8080/veiculos/1/apreensao",
+      "name": "Veiculos -  Aprender",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": ""
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1688151221430.125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_473f3f7dda744b078e16099376754307",
+      "parentId": "fld_3413ea3ae5e74e9ea2cc2096858e4ddf",
+      "modified": 1690039137648,
+      "created": 1690039127245,
+      "url": "http://localhost:8080/veiculos/1/apreensao",
+      "name": "Veiculos -  Remover apreenção",
+      "description": "",
+      "method": "DELETE",
+      "body": {
+        "mimeType": "application/json",
+        "text": ""
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1688063325297.0625,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c9a3f7c053a64cdbb333ddd3decdb5ad",
+      "parentId": "fld_4b3215d677d4469eb7ff08e1fcb568d0",
+      "modified": 1689354792299,
+      "created": 1687218100986,
+      "url": "http://localhost:8080/proprietarios",
+      "name": "Proprietario - Listar",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_4b2635e2bd29418f870d3c7084729cf2",
+          "name": "Accept",
+          "value": "application/json",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1687218100986,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_4b3215d677d4469eb7ff08e1fcb568d0",
+      "parentId": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "modified": 1687218084706,
+      "created": 1687218084706,
+      "name": "Propietários",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1687218084706,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_d36dbc2faa784919bde14cb4dd0bb711",
+      "parentId": "fld_4b3215d677d4469eb7ff08e1fcb568d0",
+      "modified": 1690037601277,
+      "created": 1687382767530,
+      "url": "http://localhost:8080/proprietarios/6",
+      "name": "Proprietario - Buscar",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_fad43b7ff59d42d6bbec72eef7ea755c",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1687045028252.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_4230d850cfed4a42950a6ffd12ba5b81",
+      "parentId": "fld_4b3215d677d4469eb7ff08e1fcb568d0",
+      "modified": 1689379426943,
+      "created": 1689374451050,
+      "url": "http://localhost:8080/proprietarios/1",
+      "name": "Proprietario - Atualizar",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\t\"nome\": \"Joao Mendonça\",\n\t\t\"email\": \"joao@gmail.com\",\n\t\t\"telefone\": \"85988888888\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_fad43b7ff59d42d6bbec72eef7ea755c",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1686915223702.375,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e8fdf09632244c4abd5022bab98f38ee",
+      "parentId": "fld_4b3215d677d4469eb7ff08e1fcb568d0",
+      "modified": 1689884756664,
+      "created": 1689379449956,
+      "url": "http://localhost:8080/proprietarios",
+      "name": "Proprietario - Adicionar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\t\"nome\": \"Giovanne\",\n\t\t\"email\": \"emidioneto@gmail.com\",\n\t\t\"telefone\": \"85988888888\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_902fbe06b5fa4ac4bef57b88991fcbe6",
+          "disabled": false
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1686904406656.5312,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a71b9da3994348f3bb2390689e81f35b",
+      "parentId": "fld_4b3215d677d4469eb7ff08e1fcb568d0",
+      "modified": 1689884783433,
+      "created": 1689375014591,
+      "url": "http://localhost:8080/proprietarios/6",
+      "name": "Proprietario - Excluir",
+      "description": "",
+      "method": "DELETE",
+      "body": {
+        "mimeType": "application/json",
+        "text": ""
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_fad43b7ff59d42d6bbec72eef7ea755c",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1686893589610.6875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_677bab59335d74cc9c4d5c3d4c1f3a79c6988ff3",
+      "parentId": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "modified": 1687217307600,
+      "created": 1687217307600,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1687217307600,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_677bab59335d74cc9c4d5c3d4c1f3a79c6988ff3",
+      "parentId": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "modified": 1687217307603,
+      "created": 1687217307603,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_90421624ac854d26b13e759cb264a4af",
+      "parentId": "wrk_99d7ce09e1ec4a298239813e40ec2e4c",
+      "modified": 1687217307595,
+      "created": 1687217307595,
+      "fileName": "JAVA api-transito",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
