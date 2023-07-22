@@ -6,6 +6,7 @@ import com.algaworks.algatransito.api.model.input.VeiculoInput;
 import com.algaworks.algatransito.domain.exception.NegocioException;
 import com.algaworks.algatransito.domain.model.Veiculo;
 import com.algaworks.algatransito.domain.repository.VeiculoRepository;
+import com.algaworks.algatransito.domain.service.ApreensaoVeiculoService;
 import com.algaworks.algatransito.domain.service.RegistroVeiculoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,7 @@ public class VeiculoController {
   private final VeiculoRepository veiculoRepository;
   private final RegistroVeiculoService registroVeiculoService;
   private final VeiculoAssembler veiculoAssembler;
+  private final ApreensaoVeiculoService apreensaoVeiculoService;
 
 
   // o @GetMapping é do Spring e já inclui o @RequestMapping com o método GET
@@ -55,6 +57,18 @@ public class VeiculoController {
     return veiculoAssembler.toModel(veiculoSalvo);
   }
 
+  @PutMapping("/{veiculoId}/apreensao")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void apreender(@PathVariable Long veiculoId){
+    apreensaoVeiculoService.apreender(veiculoId);
+  }
+
+
+  @DeleteMapping("/{veiculoId}/apreensao")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void removerApreensao(@PathVariable Long veiculoId){
+    apreensaoVeiculoService.removerApreensao(veiculoId);
+  }
 
   
 }
