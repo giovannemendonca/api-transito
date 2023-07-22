@@ -2,6 +2,7 @@ package com.algaworks.algatransito.api.controller;
 
 import com.algaworks.algatransito.api.assembler.VeiculoAssembler;
 import com.algaworks.algatransito.api.model.VeiculoModel;
+import com.algaworks.algatransito.api.model.input.VeiculoInput;
 import com.algaworks.algatransito.domain.exception.NegocioException;
 import com.algaworks.algatransito.domain.model.Veiculo;
 import com.algaworks.algatransito.domain.repository.VeiculoRepository;
@@ -46,8 +47,12 @@ public class VeiculoController {
   // o @PostMapping é do Spring e já inclui o @RequestMapping com o método POST
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public VeiculoModel adicionar(@Valid @RequestBody Veiculo veiculo){
-    return veiculoAssembler.toModel(registroVeiculoService.cadastrar(veiculo));
+  public VeiculoModel adicionar(@Valid @RequestBody VeiculoInput veiculo){
+
+    Veiculo novoVeiculo = veiculoAssembler.toEntity(veiculo);
+    Veiculo veiculoSalvo = registroVeiculoService.cadastrar(novoVeiculo);
+
+    return veiculoAssembler.toModel(veiculoSalvo);
   }
 
 

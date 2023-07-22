@@ -1,6 +1,7 @@
 package com.algaworks.algatransito.api.assembler;
 
 import com.algaworks.algatransito.api.model.VeiculoModel;
+import com.algaworks.algatransito.api.model.input.VeiculoInput;
 import com.algaworks.algatransito.domain.model.Veiculo;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -21,6 +22,12 @@ public class VeiculoAssembler {
     return modelMapper.map(veiculo, VeiculoModel.class);
   }
 
+  // o toEntity é um método que converte um VeiculoInput em um Veiculo
+  public Veiculo toEntity( VeiculoInput veiculoModel) {
+    return modelMapper.map(veiculoModel, Veiculo.class);
+  }
+
+
   // o toCollectionModel é um método que converte uma lista de Veiculo em uma lista de VeiculoModel
   // o stream() é um método que retorna um fluxo de dados da lista
   // o map() é um método que mapeia cada elemento do fluxo de dados
@@ -30,5 +37,6 @@ public class VeiculoAssembler {
             .map(this::toModel)
             .toList();
   }
+
 
 }
